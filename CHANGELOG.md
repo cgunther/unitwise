@@ -7,6 +7,10 @@ Unitwise uses semantic versioning.
 
 ## Unreleased
 
+### Fixed
+
+- Fixed compatibility with BigDecimal v2.0.
+
 ## 2.2.0 - 2017-07-14
 
 ### Fixed
