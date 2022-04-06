@@ -7,6 +7,10 @@ Unitwise uses semantic versioning.
 
 ## Unreleased
 
+### Added
+
+- Support for MRI 2.5, 2.6, 2.7, 3.0, and 3.1 (including Psych 4)
+
 ### Fixed
 
 - Fixed compatibility with BigDecimal v2.0.

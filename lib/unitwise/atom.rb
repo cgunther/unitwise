@@ -10,7 +10,14 @@ module Unitwise
       # Array of hashes representing default atom properties.
       # @api private
       def data
-        @data ||= data_files.map { |file| YAML.load(File.open file) }.flatten
+        @data ||= data_files.map do |file|
+          begin
+            # Psych 3.3.2+
+            YAML.unsafe_load(File.open file)
+          rescue NoMethodError
+            YAML.load(File.open file)
+          end
+        end.flatten
       end
 
       # Data files containing default atom data

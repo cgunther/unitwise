@@ -6,7 +6,12 @@ module Unitwise
     # The data loaded from the UCUM spec files
     # @api semipublic
     def self.data
-      @data ||= YAML.load File.open(data_file)
+      @data ||= begin
+        # Psych 3.3.2+
+        YAML.unsafe_load File.open(data_file)
+      rescue NoMethodError
+        YAML.load File.open(data_file)
+      end
     end
 
     # The location of the UCUM spec prefix data file
